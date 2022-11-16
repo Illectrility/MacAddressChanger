@@ -10,5 +10,5 @@ Please report any issues.
 illectrility
 
 If you distribute this program, please give credit using the following piece of text:
-UbuntuMACChanger is created by illectrility
+Illectrility's MAC Address Changer is created by illectrility
 https://github.com/Illectrility/MacAddressChanger
