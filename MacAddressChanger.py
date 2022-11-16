@@ -1,3 +1,4 @@
+import re
 import os
 import random
 import time
@@ -31,20 +32,31 @@ def database_read():
 
 
 def database_add():
-
     with open(r'mac_database.txt', 'a') as dataBaseFile:
-        try:
-            dataBaseFile.write("\n" + str(input("Please input MAC: ")))
-        except ValueError:
-            print("Could not add MAC to Database")
+        while True:
+            userinput = input("Please input MAC: ")
+            if re.match(r'[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:'
+                        r'[a-zA-Z0-9]{2}:'r'[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}$', userinput):
+                dataBaseFile.write("\n" + userinput)
+                break
+            else:
+                print("That was not a valid MAC address :/")
+                time.sleep(1)
+                break
 
 
 def pin_add():
     with open(r'pinned_macs.txt', 'a') as pinnedMacsFile:
-        try:
-            pinnedMacsFile.write("\n" + str(input("Please input MAC: ")))
-        except ValueError:
-            print("Could not add MAC to Pins")
+        while True:
+            userinput = input("Please input MAC: ")
+            if re.match(r'[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:'
+                        r'[a-zA-Z0-9]{2}:'r'[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}$', userinput):
+                pinnedMacsFile.write("\n" + userinput)
+                break
+            else:
+                print("That was not a valid MAC address :/")
+                time.sleep(1)
+                break
 
 
 def mac_change():
